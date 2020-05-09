@@ -116,7 +116,7 @@ class InnoTestCase(unittest.TestCase):
         self.assertEqual(data[0]['message'], 'Permission not found')
 
     def test_edit_project(self):
-        res = self.client().patch('/projects/3',
+        res = self.client().patch('/projects/1',
                                   data='{"endDate":"2020-06-02",\
                                         "description":"this is a new project",\
                                         "completed":true}',
@@ -132,7 +132,7 @@ class InnoTestCase(unittest.TestCase):
         self.assertEqual(data['completed'], True)
 
     def test_edit_project_fail(self):
-        res = self.client().patch('/projects/3',
+        res = self.client().patch('/projects/1',
                                   data='{"endDate":"2020-06-02",\
                                         "description":"this is a new project",\
                                         "completed":true}',
@@ -147,7 +147,7 @@ class InnoTestCase(unittest.TestCase):
 
     def test_delete_project(self):
         res = self.client().delete(
-            '/projects/10',
+            '/projects/1',
             headers={"Authorization": "Bearer {}".format(SUP_TOKEN)})
         data = json.loads(res.data)
 
@@ -156,7 +156,7 @@ class InnoTestCase(unittest.TestCase):
 
     def test_delete_project_fail(self):
         res = self.client().delete(
-            '/projects/10',
+            '/projects/1',
             headers={"Authorization": "Bearer {}".format(INT_TOKEN)})
         data = json.loads(res.data)
 

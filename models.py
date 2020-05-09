@@ -3,10 +3,10 @@ from sqlalchemy import Column, String, Integer, create_engine, Date
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-# database_name = "inno"
-# database_path = "postgres://rey@localhost:5432/inno"
+database_name = "inno"
+database_path = "postgres://rey@localhost:5432/inno"
 
-database_path = os.environ['DATABASE_URL']
+# database_path = os.environ['DATABASE_URL']
 
 db = SQLAlchemy()
 
@@ -21,7 +21,6 @@ def setup_db(app, database_path=database_path):
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     db.app = app
     db.init_app(app)
-    db.create_all()
 
 
 '''
