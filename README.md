@@ -19,6 +19,8 @@ This project will give the ability to structure plan, implement, and test an API
 
 The development code can be found on the Github [project repository](https://github.com/opcreek/Innovate).
 
+To run locally, import the psql dump file `inno.psql` locally and install the dependencies using the `requirments.txt` file.
+
 ### Backend
 
 The `./backend` directory contains the Flask and SQLAlchemy server. To run the api, run the following commands from the backend directory:
@@ -48,7 +50,7 @@ python test_app.py
 
 ### Error Handling
 
-The api will return the following 3 types of errors when request fails:
+The api will return the following errors when request fails:
 
 - 404: Resource Not Found
 
@@ -80,11 +82,41 @@ The api will return the following 3 types of errors when request fails:
     }
 ```
 
+- 400: Bad Request
+
+```
+    {
+          "success": False,
+          "error": 400,
+          "message": "bad request"
+    }
+```
+
+- 403: Permission not found
+
+```
+    {
+          "success": False,
+          "error": 403,
+          "message": "Permission not found"
+    }
+```
+
+- 401: Unauthorized
+
+```
+    {
+          "success": False,
+          "error": 401,
+          "message": "Unauthorized"
+    }
+```
+
 ## Endpoints
 
-### GET /categories
+### GET /project
 
-- This endpoint handles GET requests for all available categories. This endpoint will return a list of all categories.
+- This endpoint handles GET requests for all current projects. This endpoint will return a list of all project title.
 
 ### GET /questions
 
