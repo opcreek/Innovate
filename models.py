@@ -3,9 +3,6 @@ from sqlalchemy import Column, String, Integer, create_engine, Date
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-# database_name = "inno"
-# database_path = "postgres://rey@localhost:5432/inno"
-
 database_path = os.environ['DATABASE_URL']
 
 db = SQLAlchemy()

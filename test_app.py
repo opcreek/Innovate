@@ -16,8 +16,9 @@ class InnoTestCase(unittest.TestCase):
         self.app = create_app()
         self.client = self.app.test_client
         self.database_name = "inno_test"
+        self.database_url = "localhost:5432"
         self.database_path = "postgresql://{}/{}".format(
-            'localhost:5432', self.database_name)
+            self.database_url, self.database_name)
         setup_db(self.app, self.database_path)
 
         # binds the app to the current context
@@ -147,7 +148,7 @@ class InnoTestCase(unittest.TestCase):
 
     def test_delete_project(self):
         res = self.client().delete(
-            '/projects/1',
+            '/projects/20',
             headers={"Authorization": "Bearer {}".format(SUP_TOKEN)})
         data = json.loads(res.data)
 
@@ -156,7 +157,7 @@ class InnoTestCase(unittest.TestCase):
 
     def test_delete_project_fail(self):
         res = self.client().delete(
-            '/projects/1',
+            '/projects/20',
             headers={"Authorization": "Bearer {}".format(INT_TOKEN)})
         data = json.loads(res.data)
 
