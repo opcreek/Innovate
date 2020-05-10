@@ -1,552 +1,450 @@
 {
-	"info": {
-		"_postman_id": "1c7d100c-f190-445e-80d0-3ce22490053f",
-		"name": "Innovate Test",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
-	},
-	"item": [
-		{
-			"name": "Supervisor",
-			"item": [
-				{
-					"name": "GET Members",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{SUP_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://innorey.herokuapp.com/members",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"members"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Project",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{SUP_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"title\":\"New Project\",\n\t\"startDate\":\"2020-05-02\",\n\t\"endDate\":\"2020-06-02\",\n\t\"description\":\"this is a new project\",\n\t\"completed\":false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PATCH Project",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{SUP_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"endDate\":\"2020-12-30\",\n\t\"description\":\"edit this new project\",\n\t\"completed\":true\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects/3",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE Project",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{SUP_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects/20",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects",
-								"20"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Employee",
-			"item": [
-				{
-					"name": "GET Members-Employee",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{EMP_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://innorey.herokuapp.com/members",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"members"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Project-Employee",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{EMP_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"title\":\"New Project\",\n\t\"startDate\":\"2020-05-02\",\n\t\"endDate\":\"2020-06-02\",\n\t\"description\":\"this is a new project\",\n\t\"completed\":false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PATCH Project-Employee",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{EMP_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"endDate\":\"2020-12-30\",\n\t\"description\":\"edit this new project\",\n\t\"completed\":true\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects/3",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE Project-Employee",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{EMP_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects/20",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects",
-								"20"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Intern",
-			"item": [
-				{
-					"name": "GET Members-Intern",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{INT_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://innorey.herokuapp.com/members",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"members"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "POST Project-Int",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{INT_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"title\":\"New Project\",\n\t\"startDate\":\"2020-05-02\",\n\t\"endDate\":\"2020-06-02\",\n\t\"description\":\"this is a new project\",\n\t\"completed\":false\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PATCH Project-Intern",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{INT_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "PATCH",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"endDate\":\"2020-12-30\",\n\t\"description\":\"edit this new project\",\n\t\"completed\":true\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects/3",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects",
-								"3"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "DELETE Project-Intern",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "{{INT_token}}",
-									"type": "string"
-								}
-							]
-						},
-						"method": "DELETE",
-						"header": [],
-						"url": {
-							"raw": "https://innorey.herokuapp.com/projects/20",
-							"protocol": "https",
-							"host": [
-								"innorey",
-								"herokuapp",
-								"com"
-							],
-							"path": [
-								"projects",
-								"20"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Welcome Text Testing",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://innorey.herokuapp.com/",
-					"protocol": "https",
-					"host": [
-						"innorey",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						""
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Projects",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://innorey.herokuapp.com/projects",
-					"protocol": "https",
-					"host": [
-						"innorey",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"projects"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Project detail",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "https://innorey.herokuapp.com/projects/1/details",
-					"protocol": "https",
-					"host": [
-						"innorey",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"projects",
-						"1",
-						"details"
-					]
-				}
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"id": "8274c3f3-f3db-4144-8826-718eb437f750",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"id": "ca8d13d7-1b9f-471b-b9f4-21f728595fdf",
-				"type": "text/javascript",
-				"exec": [
-					""
-				]
-			}
-		}
-	],
-	"variable": [
-		{
-			"id": "1bcff4bd-7551-4252-8751-e0ec543da6e8",
-			"key": "SUP_token",
-			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlRUW1kakVaa29kWjhRVV9zSnN2biJ9.eyJpc3MiOiJodHRwczovL2Rldi1mc25kLTE1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWFhMDg5YjFjYzFhYzBjMTQ3NDc0NTQiLCJhdWQiOiJpbm5vdmF0ZVByb2plY3QiLCJpYXQiOjE1ODkwODEwNTcsImV4cCI6MTU4OTE2NzQ1NywiYXpwIjoiNlZ4QUNHc2FsMVFMcEFtaFY2aHdZRmtqZWo4MVVRVjAiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpwcm9qZWN0IiwiZGVsZXRlOnRlYW0tbWVtYmVyIiwiZ2V0OnByb2plY3QtZGV0YWlsIiwiZ2V0OnRlYW0tbWVtYmVycyIsInBhdGNoOnByb2plY3QiLCJwYXRjaDp0ZWFtLW1lbWJlciIsInBvc3Q6cHJvamVjdCJdfQ.3guYoRjyjRVgn4tlzafS8vZvIgZ1WLdY_8pq5E0A30C6CXRV26y8blWUpEdXZM71KxDUK97bQcu9B_cV5-e6E3IgFK-RpB2pb-vj69KjYdGUFVU39hipbZiuriD3f3iTXxyEQEbRrGnGO56jo5fq5pNWO3x3hJx_am0qrP8HomF6QFXtXXV77C5lIQnPFkbjyAa9_OFfGjXLik-6GPaUAjDbitxx_eR7hTplDmXDPEDohuSt157Rd2R5zHF5sr0cec9K_GsU4kS027qApt_gWBuqwguev2ZWZZQP2Jz5u1-WloAntDQt-Tc7rY68CdlDg5PAP0fklLQPLAwU_wlplw",
-			"type": "string"
-		},
-		{
-			"id": "7520839c-b676-41c9-a98f-162a14b6cfe8",
-			"key": "EMP_token",
-			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlRUW1kakVaa29kWjhRVV9zSnN2biJ9.eyJpc3MiOiJodHRwczovL2Rldi1mc25kLTE1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWFhMDczNzFjYzFhYzBjMTQ3NDcwNzUiLCJhdWQiOiJpbm5vdmF0ZVByb2plY3QiLCJpYXQiOjE1ODkxMTAwODUsImV4cCI6MTU4OTE5NjQ4NSwiYXpwIjoiNlZ4QUNHc2FsMVFMcEFtaFY2aHdZRmtqZWo4MVVRVjAiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpwcm9qZWN0LWRldGFpbCIsInBhdGNoOnByb2plY3QiLCJwb3N0OnByb2plY3QiXX0.yZ6AlRxrfOh37_SU-PaYiVFFtxK-PM1bXvsgLd7JaiNvtP1cwuOF5MndlsVznDWiynkXAwUzPFMDWb0Ch8U4orePPry9LajO2JbwytJWbX0XNdPOVMI-o-9C_cUG6b7Y4M1-aXtojEflOmUwuOJP2tpTF-kST_71Hl8ye4_Z5xO0TP7sGgErAZL1pV88VOoV4aK8ECgjv1RW6DvOAb5sE2t7MW1ZC-1sAJDxPHFf7nhRiUAekN-9cjT0Rxzud0zI3ZT4S-rOe5z97Qj0ZxR9FtjEoSV7Ao46AK8YsL85uIGKkuZCqZocwwNWGRV_ZZDNdfcrgiRKFsrrOUYxraTyMw",
-			"type": "string"
-		},
-		{
-			"id": "0480dedf-96d4-4979-91c0-b7df656c5dd2",
-			"key": "INT_token",
-			"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlRUW1kakVaa29kWjhRVV9zSnN2biJ9.eyJpc3MiOiJodHRwczovL2Rldi1mc25kLTE1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWE5ZjFlMzZiNjliYzBjMTJlM2JhMTkiLCJhdWQiOiJpbm5vdmF0ZVByb2plY3QiLCJpYXQiOjE1ODkxMTE1NzMsImV4cCI6MTU4OTE5Nzk3MywiYXpwIjoiNlZ4QUNHc2FsMVFMcEFtaFY2aHdZRmtqZWo4MVVRVjAiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbXX0.Dx8Yfq7HtYhfqiEKmQnTdjRuwmJQUx6HZX9FBcaA5oEl5W2S4SIcsTo7o0fvDunTgW-ToghmSUUEon4U0lcJM1JsRBA300Frh_5tg16zr4Nine_rb7bHkX6wO9jeuVIeY9f8Nb5wjQZf2ETMbabBV8MB10U-UK8EXv8k4sKYP0kA_PnHZp8CsgiGiUlZK05ptcDW2JidcQzbAFPKBQVKbDSkkIiG4iBAOBq-RUoMhMneXfVRbtu2iwe8zQGl-OKeJ_DtwGH8CyU1qTmCc8gFrTUz3RCPHVccjfV7m3FzRbFA64sGFcBZ_mUMaEh7n9UlSqE-EgbXLE4Dc2gXeozzRA",
-			"type": "string"
-		}
-	],
-	"protocolProfileBehavior": {}
+  "info": {
+    "_postman_id": "1c7d100c-f190-445e-80d0-3ce22490053f",
+    "name": "Innovate Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Supervisor",
+      "item": [
+        {
+          "name": "GET Members",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{SUP_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://innorey.herokuapp.com/members",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["members"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Project",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{SUP_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"title\":\"New Project\",\n\t\"startDate\":\"2020-05-02\",\n\t\"endDate\":\"2020-06-02\",\n\t\"description\":\"this is a new project\",\n\t\"completed\":false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Project",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{SUP_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"endDate\":\"2020-12-30\",\n\t\"description\":\"edit this new project\",\n\t\"completed\":true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects/3",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Project",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{SUP_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects/20",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects", "20"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Employee",
+      "item": [
+        {
+          "name": "GET Members-Employee",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{EMP_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://innorey.herokuapp.com/members",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["members"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Project-Employee",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{EMP_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"title\":\"New Project\",\n\t\"startDate\":\"2020-05-02\",\n\t\"endDate\":\"2020-06-02\",\n\t\"description\":\"this is a new project\",\n\t\"completed\":false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Project-Employee",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{EMP_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"endDate\":\"2020-12-30\",\n\t\"description\":\"edit this new project\",\n\t\"completed\":true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects/3",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Project-Employee",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{EMP_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects/20",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects", "20"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Intern",
+      "item": [
+        {
+          "name": "GET Members-Intern",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{INT_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://innorey.herokuapp.com/members",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["members"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "POST Project-Int",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{INT_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"title\":\"New Project\",\n\t\"startDate\":\"2020-05-02\",\n\t\"endDate\":\"2020-06-02\",\n\t\"description\":\"this is a new project\",\n\t\"completed\":false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "PATCH Project-Intern",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{INT_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"endDate\":\"2020-12-30\",\n\t\"description\":\"edit this new project\",\n\t\"completed\":true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects/3",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "DELETE Project-Intern",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{INT_token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "https://innorey.herokuapp.com/projects/20",
+              "protocol": "https",
+              "host": ["innorey", "herokuapp", "com"],
+              "path": ["projects", "20"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "protocolProfileBehavior": {}
+    },
+    {
+      "name": "Welcome Text Testing",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://innorey.herokuapp.com/",
+          "protocol": "https",
+          "host": ["innorey", "herokuapp", "com"],
+          "path": [""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Projects",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://innorey.herokuapp.com/projects",
+          "protocol": "https",
+          "host": ["innorey", "herokuapp", "com"],
+          "path": ["projects"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Project detail",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://innorey.herokuapp.com/projects/1/details",
+          "protocol": "https",
+          "host": ["innorey", "herokuapp", "com"],
+          "path": ["projects", "1", "details"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "id": "8274c3f3-f3db-4144-8826-718eb437f750",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "id": "ca8d13d7-1b9f-471b-b9f4-21f728595fdf",
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "id": "1bcff4bd-7551-4252-8751-e0ec543da6e8",
+      "key": "SUP_token",
+      "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlRUW1kakVaa29kWjhRVV9zSnN2biJ9.eyJpc3MiOiJodHRwczovL2Rldi1mc25kLTE1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWFhMDg5YjFjYzFhYzBjMTQ3NDc0NTQiLCJhdWQiOiJpbm5vdmF0ZVByb2plY3QiLCJpYXQiOjE1ODkxNTI1ODAsImV4cCI6MTU4OTIzODk4MCwiYXpwIjoiNlZ4QUNHc2FsMVFMcEFtaFY2aHdZRmtqZWo4MVVRVjAiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpwcm9qZWN0IiwiZGVsZXRlOnRlYW0tbWVtYmVyIiwiZ2V0OnByb2plY3QtZGV0YWlsIiwiZ2V0OnRlYW0tbWVtYmVycyIsInBhdGNoOnByb2plY3QiLCJwYXRjaDp0ZWFtLW1lbWJlciIsInBvc3Q6cHJvamVjdCJdfQ.J0znV2R-tY3-mT92YrFaO2ZAbk12IZ7zTiHoVZm_3xDgWJthNMJvdDUWwqzjz8ME2pokKRkpCfNdMdG9LmdIkxJcYlFt1L4mr5F74xkEK8xG1rChF4NEKUOeIXgRLOm8aspDbny2T2JUtL7oAJBVRRLE7OryZ9XPTnkqKz--MgidRCY0E_19ISrzJe964yrA3laYTmA_tp7b0FhyCICgj4oD_Z5xlEr-GJ7cNHNmLvnhoim_qHyVrvdxMLGQsX9tIx9sSz-y9jZOp_OREsXftW6t4lta3h3yjyA0gpLRRFexDPRYBrVnMI24jLHLO12-ul0cIEd58iegRmFCRmXJfQ",
+      "type": "string"
+    },
+    {
+      "id": "7520839c-b676-41c9-a98f-162a14b6cfe8",
+      "key": "EMP_token",
+      "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlRUW1kakVaa29kWjhRVV9zSnN2biJ9.eyJpc3MiOiJodHRwczovL2Rldi1mc25kLTE1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWFhMDczNzFjYzFhYzBjMTQ3NDcwNzUiLCJhdWQiOiJpbm5vdmF0ZVByb2plY3QiLCJpYXQiOjE1ODkxNTI0MTMsImV4cCI6MTU4OTIzODgxMywiYXpwIjoiNlZ4QUNHc2FsMVFMcEFtaFY2aHdZRmtqZWo4MVVRVjAiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDpwcm9qZWN0LWRldGFpbCIsInBhdGNoOnByb2plY3QiLCJwb3N0OnByb2plY3QiXX0.ygh54YtbLGMeCD8oYY0e9iO6QeR4kTIxFi32TvPWnucfeNuVJu7qZAwbFCPb9Aqlv2PN5FJR_N4xGe5Iq_lLiLSrTLgwVypMURo_DX4vPhGQnsb3S0tT91H97DnDAtudRj_oBAJxzara6BmrHvAQr9s86VPQV0N8Caz9ltfuOhAT4cIFgDYf6eotkky4yttCG2F1LlKRILVFd2ji_-nktj233SXC_udI4c3ClNR79u2CMGa3ZjvRm2UL7wghtjnFFm-vcShEVoGY0aVhMGVyFbV31OEEiYykC-SLY6fz4AOedWtemRl0LXXTdILlwwXxaG21L6HBEh7Wxbfs2selXQ",
+      "type": "string"
+    },
+    {
+      "id": "0480dedf-96d4-4979-91c0-b7df656c5dd2",
+      "key": "INT_token",
+      "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjlRUW1kakVaa29kWjhRVV9zSnN2biJ9.eyJpc3MiOiJodHRwczovL2Rldi1mc25kLTE1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZWE5ZjFlMzZiNjliYzBjMTJlM2JhMTkiLCJhdWQiOiJpbm5vdmF0ZVByb2plY3QiLCJpYXQiOjE1ODkxNTIyNDYsImV4cCI6MTU4OTIzODY0NiwiYXpwIjoiNlZ4QUNHc2FsMVFMcEFtaFY2aHdZRmtqZWo4MVVRVjAiLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbXX0.01Pfq9KENRpMCmOzJ8YhOI0PBJVf3imDhk3lHeo2PqlN7ZjLPX_B0oDHHjPv89bwrYKXRcCjJDAt6ljHr4vlb9JB6-f8RyMVz-7VqMv101IXXuy8WZJie7eAqw42Ev7gkbpm4aQ2GtDgnL1Kn0dm5mOt0_2DTFZIRobB7edZmQZnI1PU3nLH0_0Rs6Rjrb9DM_4d96LkVFlAmg4Emft7rNgG59B9H7g-OcVsE76FCXBDMAaNTSQTIMXZvmaXXE0NEVdc6rRQsxoQ1foX0vcwEXJ-XjUcrAgjmHIXgMhbcdRJXpHTzCe22l5WgJcezsTCV6QGH_3izDrAFbfD2KFuxw",
+      "type": "string"
+    }
+  ],
+  "protocolProfileBehavior": {}
 }

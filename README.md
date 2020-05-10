@@ -13,13 +13,18 @@ This simple app creates projects, allows people to check in, and add and edit pr
 
 This project will give the ability to structure plan, implement, and test an API - skills essential for enabling future applications to communicate with others.
 
-## Getting Started
+## API Referrence
+
+### Getting Started
+
+- Base URL: The backend app is hosted at [Heroku](https://innorey.herokuapp.com/) - `https://innorey.herokuapp.com/`
+- Authentication: This app uses third-party authentication. The third party service used is **Autho**.
 
 ### Pre-requisite and Local Development
 
 The development code can be found on the Github [project repository](https://github.com/opcreek/Innovate).
 
-To run locally, import the psql dump file `inno.psql` locally and install the dependencies using the `requirments.txt` file.
+To run locally, import the psql dump file `inno.psql` locally and install the dependencies using the `requirements.txt` file.
 
 ### Backend
 
@@ -41,12 +46,82 @@ psql: inno_test < inno.psql
 python test_app.py
 ```
 
-## API Referrence
+Authentication is also utilized in the testing based on 3 primary roles. The token variables found in the `auth.py` file has been initially filled out and should be good for the next 24 hours. Please generate new tokens if the tokens has expired and replace the current values for the token variables listed below with the new tokens generated.
 
-### Getting Started
+- `INT_token`
+- `EMP_token`
+- `SUP_token`
 
-- Base URL: The backend app is hosted at [Heroku](https://innorey.herokuapp.com/).
-- Authentication: This app uses third-party authentication. The third party service used is **Autho**.
+## Authentication
+
+This app utilizes the third party authentication service **Auth0**. Three RBAC roles are enabled and setup as follows:
+
+1.  Intern - general access/no permissions assigned
+
+    - `email: test123@email.com`
+    - `password: Password123!`
+
+2.  Employee - limited access, end points allowed:
+
+    ```
+    get:project:detail
+    patch:project
+    post:project
+    ```
+
+    - `email: innovate_empl@me.com`
+    - `password: Password456!`
+
+3.  Supervisor - full access, end points allowed:
+
+    ```
+    get:project:detail
+    get:team-members
+    patch:project
+    post:project
+    delete:project
+    ```
+
+    - `email: innovate_sup@icloud.com`
+    - `password: Password678!`
+
+Note: The JWT token generated only has a maximum 24 hours lifetime. To generate a new token, open a new browser and enter the url:
+
+```
+https://dev-fsnd-15.auth0.com/authorize?audience=innovateProject&response_type=token&client_id=6VxACGsal1QLpAmhV6hwYFkjej81UQV0&redirect_uri=http://localhost:3000
+```
+
+Email and password are provided above for the role desired.
+
+## Endpoints
+
+### GET `/`
+
+- This endpoint is the landing page and will just display the welcome string.
+
+### GET `/project`
+
+- This endpoint handles GET requests for all current projects. This endpoint will return a list of all project title.
+
+### GET `/projects/<int:proj_id>/details`
+
+- This endpoint handles GET requests for project details. This endpoint will return items of the projects such as project id, title, start date, end date, description and completed status.
+
+### GET `/members`
+
+- This endpoint handles GET requests for all current team members. This endpoint will return a list of members in the team assigned to projects. This endpoint will require authorization based on RBAC roles setup for this endpoint.
+
+### DELETE `/projects/<int:id>`
+
+- This endpoint will delete a project using the project ID. This will return a boolean result whether successful deletion: True or failed deletion: False. This endpoint will require authorization based on RBAC roles setup for this endpoint.
+
+### POST `/projects`
+
+- This endpoint will allow for posting of a new project including the requirements for the project title, start date, end date, description and completed status. This endpoint will return the following: a boolean result whether successful submission: True or failed submission: False, new project id, new project title, new start date, new description, new completed status and the new total number of projects. This endpoint will require authorization based on RBAC roles setup for this endpoint.
+
+### PATCH `/projects/<int:proj_id>`
+
+- This endpoint will allow for editing particular items in a project. The items that can be edited are the project end date, description and completed status. This endpoint will return the following: a boolean result whether successful edit: True or failed edit: False, the project id that was edited, the project title, the project start date, the new end date, the new description and the new completed status. This endpoint will require authorization based on RBAC roles setup for this endpoint.
 
 ### Error Handling
 
@@ -112,37 +187,11 @@ The api will return the following errors when request fails:
     }
 ```
 
-## Endpoints
+## Deployment:
 
-### GET /project
+This API is hosted in Heroku. Base URL: [Heroku](https://innorey.herokuapp.com/) - `https://innorey.herokuapp.com/`
 
-- This endpoint handles GET requests for all current projects. This endpoint will return a list of all project title.
-
-### GET /questions
-
-- This endpoint handles GET requests for questions, including pagination per 10 questions. This endpoint will return a list of questions, number of total questions and list of categories.
-
-### DELETE /questions/\<int:id>
-
-- This endpoint will delete a question using the question ID. This will return a boolean result whether successful deletion: True or failed deletion: False. This endpoint will also return the question id that was deleted.
-
-### POST /questions
-
-- This endpoint will allow for posting a new question including the requirements for the answer text, category and difficulty score. This endpoint will return the following: a boolean result whether successful submission: True or failed submission: False, the new question id, the new quesstion, a paginated list of the current questions and the total number of questions.
-
-### POST /questions/search
-
-- This endpoint will search for all questions based on a search term. This endpoint will return any questions which contain the string specified in the search term paginated if needed. It will also return a boolean result whether successful search: True or failed search: False and the total number of questions. It is also case-insensitive.
-
-### GET /categories/\<int:id>/questions
-
-- This endpoint will get all questions based on a category. This endpoint will return a boolean result whether successful retrieval: True or fail: False, a paginated result with 10 questions per page and the current category.
-
-### POST /quizzes
-
-- This endpoint will get questions to play the trivia. This endpoint will return a random question within the given category if provided or for all categories. This endpoint also has the capability to make sure that the current selection is not the previous questions used.
-
-## Deployment: N/A
+To test endpoints at live application endpoint, a postman collection json file - `Innovate Test.postman_collection.json` is provided in the backend directory that can be imported to postman if desired.
 
 ## Author
 
