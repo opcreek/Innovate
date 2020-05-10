@@ -27,6 +27,11 @@ def create_app(test_config=None):
         return response
 
     # setup endpoint decorators
+    # welcome page endpoint
+    @app.route('/')
+    def welcome():
+        return "Welcome to the Innovation App"
+
     # Create an endpoint to handle GET requests
     # for all projects.
     @app.route('/projects')
