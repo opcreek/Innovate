@@ -8,7 +8,7 @@ This simple app creates projects, allows people to check in, and add and edit pr
 2. Display project details.
 3. Display a list of all team members with their corresponding projects.
 4. Add new projects.
-5. Edit details of and existing project.
+5. Edit details of an existing project.
 6. Delete an existing project.
 
 This project will give the ability to structure plan, implement, and test an API - skills essential for enabling future applications to communicate with others.
@@ -17,7 +17,7 @@ This project will give the ability to structure plan, implement, and test an API
 
 ### Pre-requisite and Local Development
 
-The development code can be found on the Github [project repository](https://github.com/opcreek/FSND/tree/master/projects/02_trivia_api/starter).
+The development code can be found on the Github [project repository](https://github.com/opcreek/Innovate).
 
 ### Backend
 
@@ -29,30 +29,22 @@ export FLASK_ENV=development
 flask run
 ```
 
-### Frontend
-
-The `./frontend` directory contains a complete React frontend to consume the data from the Flask server. To start the client, run the following command from the frontend directory:
-
-```
-npm start
-```
-
 ### Tests
 
 To run the tests, navigate to the backend folder and run the following commands:
 
 ```
-createdb trivia_test
-psql: trivia_test < trivia.psql
-python test_flaskr.py
+createdb inno_test
+psql: inno_test < inno.psql
+python test_app.py
 ```
 
 ## API Referrence
 
 ### Getting Started
 
-- Base URL: This app can only be run locally. The backend app is hosted at http://127.0.0.1:5000.
-- Authentication: This app do not require any authentication.
+- Base URL: The backend app is hosted at [Heroku](https://innorey.herokuapp.com/).
+- Authentication: This app uses third-party authentication. The third party service used is **Autho**.
 
 ### Error Handling
 

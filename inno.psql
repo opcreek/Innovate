@@ -1,0 +1,207 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 12.1
+-- Dumped by pg_dump version 12.1
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET idle_in_transaction_session_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+
+SET default_tablespace = '';
+
+SET default_table_access_method = heap;
+
+--
+-- Name: alembic_version; Type: TABLE; Schema: public; Owner: rey
+--
+
+CREATE TABLE public.alembic_version (
+    version_num character varying(32) NOT NULL
+);
+
+
+ALTER TABLE public.alembic_version OWNER TO rey;
+
+--
+-- Name: project; Type: TABLE; Schema: public; Owner: rey
+--
+
+CREATE TABLE public.project (
+    id integer NOT NULL,
+    title character varying,
+    "startDate" date,
+    "endDate" date,
+    description character varying,
+    completed boolean
+);
+
+
+ALTER TABLE public.project OWNER TO rey;
+
+--
+-- Name: project_id_seq; Type: SEQUENCE; Schema: public; Owner: rey
+--
+
+CREATE SEQUENCE public.project_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.project_id_seq OWNER TO rey;
+
+--
+-- Name: project_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rey
+--
+
+ALTER SEQUENCE public.project_id_seq OWNED BY public.project.id;
+
+
+--
+-- Name: team; Type: TABLE; Schema: public; Owner: rey
+--
+
+CREATE TABLE public.team (
+    id integer NOT NULL,
+    members character varying[],
+    project integer
+);
+
+
+ALTER TABLE public.team OWNER TO rey;
+
+--
+-- Name: team_id_seq; Type: SEQUENCE; Schema: public; Owner: rey
+--
+
+CREATE SEQUENCE public.team_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.team_id_seq OWNER TO rey;
+
+--
+-- Name: team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: rey
+--
+
+ALTER SEQUENCE public.team_id_seq OWNED BY public.team.id;
+
+
+--
+-- Name: project id; Type: DEFAULT; Schema: public; Owner: rey
+--
+
+ALTER TABLE ONLY public.project ALTER COLUMN id SET DEFAULT nextval('public.project_id_seq'::regclass);
+
+
+--
+-- Name: team id; Type: DEFAULT; Schema: public; Owner: rey
+--
+
+ALTER TABLE ONLY public.team ALTER COLUMN id SET DEFAULT nextval('public.team_id_seq'::regclass);
+
+
+--
+-- Data for Name: alembic_version; Type: TABLE DATA; Schema: public; Owner: rey
+--
+
+COPY public.alembic_version (version_num) FROM stdin;
+7a1e678400da
+\.
+
+
+--
+-- Data for Name: project; Type: TABLE DATA; Schema: public; Owner: rey
+--
+
+COPY public.project (id, title, "startDate", "endDate", description, completed) FROM stdin;
+1	MIPE Rehome	2020-05-01	2020-06-01	migrate MSN to new MIPE	f
+2	RNC Delete	2020-05-01	2020-06-01	MSN RNC OC3 delete	f
+3	TH5500 Move	2020-05-01	2020-07-15	move PTP server to 9010 MSN	f
+4	RSP Upgrade	2020-05-01	2020-08-30	upgrade RSP440 card to RSP880	f
+5	MSN GS Audit	2020-05-01	2020-06-01	7609-9010 Gold Standard audit	f
+6	MAR Integration	2020-05-01	2021-04-30	integrate new MAR 9010	f
+\.
+
+
+--
+-- Data for Name: team; Type: TABLE DATA; Schema: public; Owner: rey
+--
+
+COPY public.team (id, members, project) FROM stdin;
+1	{"John Appleseed","Tom King","Beth Slater"}	1
+2	{"John Appleseed","Robert Wright"}	2
+3	{"John Appleseed","Beth Slater"}	3
+4	{"John Appleseed","Tom King"}	4
+5	{"John Appleseed","Sheila Paraiso"}	5
+6	{"John Appleseed","Sheila Paraiso","Robert Wright","Tom King"}	6
+\.
+
+
+--
+-- Name: project_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rey
+--
+
+SELECT pg_catalog.setval('public.project_id_seq', 20, false);
+
+
+--
+-- Name: team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: rey
+--
+
+SELECT pg_catalog.setval('public.team_id_seq', 1, false);
+
+
+--
+-- Name: alembic_version alembic_version_pkc; Type: CONSTRAINT; Schema: public; Owner: rey
+--
+
+ALTER TABLE ONLY public.alembic_version
+    ADD CONSTRAINT alembic_version_pkc PRIMARY KEY (version_num);
+
+
+--
+-- Name: project project_pkey; Type: CONSTRAINT; Schema: public; Owner: rey
+--
+
+ALTER TABLE ONLY public.project
+    ADD CONSTRAINT project_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: team team_pkey; Type: CONSTRAINT; Schema: public; Owner: rey
+--
+
+ALTER TABLE ONLY public.team
+    ADD CONSTRAINT team_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: team team_project_fkey; Type: FK CONSTRAINT; Schema: public; Owner: rey
+--
+
+ALTER TABLE ONLY public.team
+    ADD CONSTRAINT team_project_fkey FOREIGN KEY (project) REFERENCES public.project(id);
+
+
+--
+-- PostgreSQL database dump complete
+--
+
